@@ -18,7 +18,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: reactionDate => newDate(reactionDate)
+            get: v => newDate(v)
         },
     },
     {
@@ -41,7 +41,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: thoughtDate => newDate(thoughtDate)
+            get: v => newDate(v)
         },
         username: {
             type: String,

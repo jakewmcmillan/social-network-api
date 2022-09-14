@@ -26,7 +26,7 @@ module.exports = {
             });
     },
     deleteThought(req, res) {
-        Thought.findOneAndDelete({ __id: req.params.thoughtId })
+        Thought.findOneAndDelete({ _id: req.params.thoughtId })
             .then((thought) =>
                 !thought
                     ? res.status(404).json({ message: 'No thought with that ID' })
@@ -57,11 +57,11 @@ module.exports = {
             });
     },
     deleteReaction(req, res) {
-        Reaction.findOneAndDelete({ __id: req.params.reactionId })
+        Reaction.findOneAndDelete({ _id: req.params.reactionId })
             .then((reaction) =>
                 !reaction
                     ? res.status(404).json({ message: 'No reaction with that ID!' })
-                    : User.deleteMany({ __id: { $in: thought.reaction} })
+                    : User.deleteMany({ _id: { $in: thought.reaction} })
             )
             .then(() => res.json({ message: 'Reaction and user deleted!' }))
             .catch((err) => res.status(500).json(err));

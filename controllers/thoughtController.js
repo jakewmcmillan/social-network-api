@@ -1,4 +1,4 @@
-const { createPromptModule } = require('inquirer');
+const { Thought, User } = require('../models');
 
 module.exports = {
     getThought(req, res) {
